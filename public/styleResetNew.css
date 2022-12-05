@@ -1,0 +1,368 @@
+/* ------------------------- */
+/* Reset                     */
+/* ------------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+/* Reset margins */
+body, h1, h2, h3, h4, h5,
+p, figure, picture{
+    margin:0;
+    padding:0;
+}
+html, body{
+    min-height: 100vh;
+}
+/* Set up body */
+body{
+    font-size: var(--fs-400);
+    font-family: var(--ff-sans-cond);
+    background-color: hsl(var(--clr-light));
+    color: hsl(var(--clr-text-white));
+    line-height:1.7;
+    /* min-height: 100%; */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header, footer{
+    margin:0;
+    padding:0;
+    /* min-height: 1.5rem; */
+}
+footer{
+    /* position:absolute;
+    bottom:0; */
+    overflow:hidden;
+}
+
+a, a:hover, a:focus, a:active {
+    color: hsl(var(--clr-text-white)); 
+    text-decoration: none ;
+    cursor:pointer;  
+}
+
+/* Set up images */
+img, picture{
+    max-width: 100%;
+    display:block;
+}
+
+/* Set up form elements */
+input, button, textarea, select{
+    font:inherit;
+}
+
+
+/* ------------------------- */
+/* Utility Classes           */
+/* ------------------------- */
+/* general */
+.flex{
+    display:flex; 
+    gap:var(--gap, .8em);
+}
+.flex-cols{
+    display:flex; 
+    flex-direction: column;
+    gap:var(--gap, .8em);
+
+}
+.flex-start{
+    display:flex; 
+    justify-content: flex-start;
+    align-items:flex-start;
+}
+.flex-end{
+    display:flex; 
+    justify-content: flex-end;
+    align-items:flex-end;
+}
+.flex-right{
+    display:flex; 
+    /* justify-content :space-between;
+    justify-items   :space-between;
+    justify-self    :space-between; */
+    align-self:center;
+    margin-left: auto;
+}
+.grid{
+    display:grid; 
+    gap:var(--gap,1rem);
+}
+
+.inline{display:inline; }
+.inline-block{display:inline-block; }
+.block{display:block; }
+/* .flexbox{display:flexbox; } */
+
+/* "> * + *" means: Set all children, that have a previous sibling */
+.flow > * + *{margin-top:1rem;} 
+
+
+.no-wrap{
+    text-overflow:clip;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.marg-auto{
+    /* margin:auto; */
+    margin-top: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: auto;
+}
+
+.pad-1{ padding:1rem; }
+.pad-1-3{ padding:1.3rem; }
+.pad-2{ padding:2rem; }
+.marg-1{ margin:1rem; }
+.marg-1-3{ margin:1.3rem; }
+.marg-2{ margin:2rem; }
+.marg-lr-half{margin-left: 0.5rem; margin-right: 0.5rem;}
+.marg-lr-1{margin-left: 1rem; margin-right: 1rem;}
+.marg-tb-half{margin-top: 0.5rem; margin-bottom: 0.5rem;}
+.marg-tb-1{margin-top: 1rem; margin-bottom: 1rem;}
+
+
+.center{    
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    text-align: center;
+}
+.center-h{    
+    margin-left: auto;
+    margin-right: auto;
+}
+.center-v{    
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.right{
+    position: absolute;
+    right:0;
+}
+.up{
+    position: absolute;
+    top:0;
+}
+.left{
+    position: absolute;
+    left:0;
+}
+.bottom{
+    position: absolute;
+    bottom:0;
+}
+.min-w-3em{min-width: 2.6em;}
+.min-h-3em{min-height:2.6em;}
+.text-center{text-align: center;}
+
+.float-right{float:right}
+.float-left{float:left}
+
+.pos-rel{position: relative;}
+.pos-abs{position: absolute;} 
+.abs-right{right:0;}
+.abs-top-150px{top:40px;}
+
+.sticky{position: sticky;}
+.sticky-block{position: fixed;}
+.top-0{top:0;}
+.left-0{left:0;}
+.right-0{right:0;}
+.bottom-0{bottom:0;}
+.sticky-top{position: sticky; top:0;}
+.fixed{position: fixed; }
+.fixed-top{position: fixed; top:0; }
+.fixed-bottom{position: fixed; bottom:0;}
+
+.width-100{width:100%;}
+
+.full-h{height:100%;}
+.full-w{width:100%;}
+
+.uppercase{text-transform: uppercase;}
+.letter-space-0{ letter-spacing: 0rem; }
+.letter-space-1{ letter-spacing: .1rem; }
+.letter-space-2{ letter-spacing: .2rem; }
+.letter-space-3{ letter-spacing: .3rem; }
+.letter-space-4{ letter-spacing: .4rem; }
+
+.overflow-hidden{overflow: hidden;}
+
+/* ------------------------- */
+/* Custom properties           */
+/* ------------------------- */
+
+:root{
+    /* colors */
+    --clr-dark: 210 18% 20%;
+    --clr-light:210 8% 90%;
+
+    
+    --clr-text-dark: 210 18% 20%;
+    --clr-text-light:210 8% 96%;
+    
+    --clr-accent:231 77% 90%;
+    --clr-white:0 0% 100%;
+
+    /* font sizes */
+    --fs-900: 9.375rem; 
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+    --fs-100: 0.6rem;
+
+    /* font families */
+    /* --ff-serif: 'Barlow Semi Condensed', sans-serif; */
+    /* --ff-sans-normal: 'Barlow Semi Condensed', sans-serif; */
+    --ff-btn-symbol: 'Mallanna', sans-serif;
+    /* --ff-sans-cond: 'Barlow Semi Condensed', sans-serif; */
+    --ff-sans-cond: 'Quicksand', sans-serif;
+    /* --ff-sans-cond: 'Open Sans', sans-serif; */
+}
+
+
+
+.primary-nav{
+    --gap: 2rem;
+    /* color: rgb(255, 255, 255); */
+}
+.primary-nav a{
+    text-decoration-line: none;
+    color: rgb(255, 255, 255);
+}
+.primary-nav a:visited{
+    color: hsl(var(--clr-text-light));
+}
+
+
+.separator-1{
+    max-width: 100%;
+    padding-bottom: 1em;
+    border-bottom: 3px solid hsl(var(--clr-dark)/.2);
+}
+.underline-8{border-bottom: 8px solid hsl(var(--clr-dark)/.3);}
+.underline-6{border-bottom: 6px solid hsl(var(--clr-dark)/.3);}
+.underline-4{border-bottom: 4px solid hsl(var(--clr-dark)/.3);}
+.underline-2{border-bottom: 2px solid hsl(var(--clr-dark)/.3);}
+
+/* font family */
+.ff-sans-cond{font-family:var(--ff-sans-cond);}
+/* .ff-sans-normal{font-family:var(--ff-sans-normal);} */
+.ff-btn-symbol{font-family:var(--ff-btn-symbol);}
+
+/* font size */
+.fs-900{font-size:var(--fs-900);}
+.fs-800{font-size:var(--fs-800);}
+.fs-700{font-size:var(--fs-700);}
+.fs-600{font-size:var(--fs-600);}
+.fs-500{font-size:var(--fs-500);}
+.fs-400{font-size:var(--fs-400);}
+.fs-300{font-size:var(--fs-300);}
+.fs-200{font-size:var(--fs-200);}
+.fs-100{font-size:var(--fs-100);}
+/* Change line height for large fonts */
+.fs-900, .fs-800, .fs-700, .fs-600{
+    line-height: 1.1;
+}
+
+
+.bgDark{background-color: hsl(var(--clr-text-dark));}
+.bgAccent{background-color: hsl(var(--clr-light));}
+.bgLight{background-color: hsl(var(--clr-white));}
+
+.textdark{color: hsl(var(--clr-text-dark));}
+.textAccent{color: hsl(var(--clr-text-light));}
+.textLight{color: hsl(var(--clr-white));}
+
+
+
+/* ------------------------- */
+/* Media Query               */
+/* ------------------------- */
+/* 
+    For creating custom grid columns if width is < value
+    @media(min-width: 2px){
+        .className{
+            ...
+        }
+    }
+*/
+
+
+/* ------------------------- */
+/* For Debuging              */
+/* ------------------------- */
+/* .level0{background-color: rgb(13, 29, 47);}
+.level1{background-color: rgba(26, 71, 92, 0.7);}
+.level2{background-color: rgba(86, 33, 117, .7);}
+.level3{background-color: rgba(101, 100, 35, .7);}  */
+
+.border{border: solid 2px white;} 
+.border-yellow{border: solid 2px rgb(255, 255, 0);}
+.border-red{border: solid 2px rgb(159, 24, 24);} 
+.border-blue{border: solid 2px rgb(20, 54, 146);} 
+.border-green{border: solid 2px rgb(9, 116, 20);} 
+
+.bk-black{background-color:black;}
+.bk-white{background-color:white;}
+.bk-red{background-color:rgba(167, 44, 44, .7);}
+.bk-blue{background-color:rgba(44, 48, 167, .7);}
+.bk-green{background-color:rgba(50, 167, 44, .7); }
+.bk-magenda{background-color:rgba(167, 44, 155, .7);}
+.bk-cyan{background-color:rgba(44, 159, 167, .7);}
+.bk-orange{background-color:rgba(207, 143, 34, 0.7);}
+.bk-yellow{background-color:rgba(207, 196, 34, 0.7);}
+.bk-purple{background-color:rgba(91, 44, 167, .7);}
+
+.debug-border-black{border: solid 1px black;}
+.debug-border-white{border: solid 1px white;}
+.debug-border-red{border: solid 1px rgb(167, 44, 44);}
+.debug-border-blue{border: solid 1px rgb(44, 48, 167);}
+.debug-border-green{border: solid 1px rgb(50, 167, 44); }
+.debug-border-magenda{border: solid 1px rgb(167, 44, 155);}
+
+
+
+/* For visualy impaired */
+.sr-only{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0px;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////// */
+/* Disable animations if they are turned off by the user */
+/* *,
+*::before,
+*::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+} */
+

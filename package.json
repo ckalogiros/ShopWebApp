@@ -1,0 +1,19 @@
+{
+  "name": "server-side",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "lite": "lite-server --port 4242",
+    "start": "npm run lite"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.20",
+    "express": "^4.18.2",
+    "lite-server": "^2.6.1",
+    "stripe": "^11.1.0"
+  },
+  "description": ""
+}

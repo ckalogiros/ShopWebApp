@@ -1,0 +1,7 @@
+If want to run 'server.js' from local server(with node),
+    in the bs-config.json
+        {
+            "server":{"baseDir":"./public"} 
+        }
+    put as 'baseDir' the public folder's directory. 
+    otherwise it is not gonna load the 'index.html' file
